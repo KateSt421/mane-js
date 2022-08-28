@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <script>
+        //1 задание
+        var a = 1, b = 1, c, d;
+        c = ++a; alert(c); //результат 2, т.к. значение переменной "а" увеличилось на 1 (стала=2)
+        d = b++; alert(d); //результат 1, т.к. значение переменной "b" увеличилось на 1 (стала=2) и вернулось значение 1 для переменной "d"
+        c = (2 + ++a); alert(c); //результат 5, т.к. переменная "а" была 2 и увеличилась на 1 = 3 прибавить 2 = 5
+        d = (2 + b++); alert(d); //результат 4, т.к. переменная "b" была 2 и увеличилась на 1 = 3, но вернулось значение 2 для выражения с переменной "d"
+        alert(a); //результат 3, т.к. переменная "а" была увеличена 2 раза (1+1+1)
+        alert(b); //результат 3, т.к. переменная "b" была увеличена 2 раза (1+1+1)
+
+        //2 задание
+        var a = 2;
+        var x = 1 + (a *= 2); //результат 5, т.к. "*=" сокращенный оператор присваивания и обозначает умножение, 5=1+(2*2)
+
+        //3 задание
+        let a = -8;
+        let b = 5;
+        if (a >= 0 && b >= 0) //если a и b положительные
+            console.log(a - b);
+        else if (a < 0 && b < 0) //если а и b отрицательные
+            console.log(a * b);
+        else //если а и b разных знаков
+            console.log(a + b);
+
+        //4 задание   
+        let a = +promt('Введите число от 1 до 15');
+        switch (a) {
+            case 1:
+                console.log(a++);
+            case 2:
+                console.log(a++);
+            case 3:
+                console.log(a++);
+            case 4:
+                console.log(a++);
+            case 5:
+                console.log(a++);
+            case 6:
+                console.log(a++);
+            case 7:
+                console.log(a++);
+            case 8:
+                console.log(a++);
+            case 9:
+                console.log(a++);
+            case 10:
+                console.log(a++);
+            case 11:
+                console.log(a++);
+            case 12:
+                console.log(a++);
+            case 13:
+                console.log(a++);
+            case 14:
+                console.log(a++);
+            case 15:
+                console.log(a++);
+            default:
+                console.log('неизвестная цифра');
+        }
+
+        //5 задание
+        function saySum(a, b) {
+            return a + b;
+        }
+        let sum = saySum(a, b);
+
+        function saySubtraction(a, b) {
+            return a - b;
+        }
+        let subtraction = saySubtraction(a, b);
+
+        function sayMultiplication(a, b) {
+            return a * b;
+        }
+        let multiplication = sayMultiplication(a, b);
+
+        function sayDivision(a, b) {
+            return a / b;
+        }
+        let division = sayDivision(a, b);
+
+        //6 задание
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case 'Сложение':
+                    return sum(arg1, arg2);
+                case 'Разность':
+                    return difference(arg1, arg2);
+                case 'Умножение':
+                    return multiplication(arg1, arg2);
+                case 'Деление':
+                    return division(arg1, arg2);
+            }
+        }
+
+        //8 задание
+        function power(val, pow) {
+            if (pow !== 1) {
+                return val * power(val, pow - 1);
+            }
+            return val;
+        }
+
+    </script>
+</body>
+
+</html>

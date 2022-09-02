@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 3</title>
+</head>
+
+<body>
+    <script>
+        //1 задание
+        var a = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+        var i = 0;
+        while (i < a.length) {
+            console.log(a[i++]);
+        }
+
+        //2 задание
+        let goods = [{
+            nm: 'яблоки', //наименование
+            qty: 1, //количество
+            cost: 100, //ценник за шт.
+        }, {
+            nm: 'груши',
+            qty: 2,
+            cost: 200,
+        }, {
+            nm: 'бананы',
+            qty: 3,
+            cost: 50,
+        },];
+
+        let total = 0;
+        goods.map((item) => {
+            return total = total + (item.qty * item.cost);
+        })
+        console.log(total);// total = 650
+
+        //3 задание
+        for (var count = 0; count < 10; count++)
+            console.log(count);
+
+        //4 задание
+        var str = "x"
+        console.log(str)
+        for (var x = 0; x < 20; x++) {
+            console.log(str += "x")
+        }
+    </script>
+</body>
+
+</html>

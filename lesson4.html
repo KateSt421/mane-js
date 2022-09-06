@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 1</title>
+</head>
+
+<body>
+    <script>
+        //задание 1
+        var num = prompt("Введите число от 0 до 999");
+        function getNum2Obj(num) {
+            if (isNaN(num)) {
+                console.log('Ошибка: введите число от 0 до 999');
+            } else if (num > 999 || num < 0) {
+                console.log('Ошибка: введите число от 0 до 999');
+                var obj = {};
+                return obj;
+            } else {
+                var number = ['единицы', 'десятки', 'сотни'];
+                var obj = {};
+                var i = 0;
+                for (var i = 0; num != 0; i++) {
+                    obj[number[i]] = num % 10;
+                    num = (num - num % 10) / 10;
+                }
+            }
+            return obj;
+        }
+        console.log(getNum2Obj(num));
+
+        //задание 2
+        let total = 0;
+        const Basket = [{ item: { name: 'Яблоки', price: 100, amount: 1, }, },
+        { item: { name: 'Груши', price: 200, amount: 2, }, },
+        { item: { name: 'Бананы', price: 50, amount: 3, }, },
+        ];
+
+        function countBasketPrice(x) {
+            for (i = 0; i < Basket.length; i++) {
+                total = total + (Basket[i].item.price * Basket[i].item.amount);
+            }
+            return total;
+        }
+        console.log('В корзине:');
+        for (i = 0; i < Basket.length; i++) {
+            console.log(Basket[i].item.name + ' — ' + Basket[i].item.price + ' * ' + Basket[i].item.amount);
+        }
+        console.log('Стоимость заказа: ' + countBasketPrice(Basket));
+
+
+        const myBasket = Basket.reduce(
+            (good, object) => {
+                const item = object.item.name;
+                good[name] ??= [];
+                good[name].push(object);
+                return good;
+            },
+            {},
+        );
+        console.log('В корзине:');
+        console.log(JSON.stringify(myBasket, null, ' '));
+        console.log('Стоимость заказа: ' + countBasketPrice(Basket));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 5</title>
+    <style>
+        .catalog__product {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            width: 300px;
+            height: 50px;
+        }
+
+        table {
+            border-spacing: 0;
+            border: 1px solid black;
+            margin: 20px 20px;
+        }
+
+        .black {
+            width: 40px;
+            height: 40px;
+            background: black;
+        }
+
+        .white {
+            width: 40px;
+            height: 40px;
+            background: white;
+        }
+
+        [data-row]:before {
+            content: attr(data-row);
+            position: absolute;
+            margin: 12px -15px;
+        }
+
+        [data-col]:before {
+            content: attr(data-col);
+            position: absolute;
+            margin: 25px 14px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="catalog"></div>
+        <div class="shop"></div>
+    </div>
+
+    <script>
+
+        //задание 1
+
+        let table = document.createElement("table");
+        for (let i = 0; i < 8; i++) {
+            let tr = document.createElement('tr');
+            tr.setAttribute('data-row', 8 - i);
+            for (let j = 0; j < 8; j++) {
+                let td = document.createElement('td');
+                if (i == 7) {
+                    td.setAttribute('data-col', String.fromCharCode(65 + j));
+                }
+                if (i % 2 == j % 2) {
+                    td.className = "white";
+                } else {
+                    td.className = "black";
+                }
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        document.body.appendChild(table);
+
+        //задание 2
+
+        const cart = {
+            products: [
+                { name: "яблоки", price: 100, count: 1 },
+                { name: "груши", price: 200, count: 2 },
+                { name: "бананы", price: 50, count: 3 },
+            ],
+
+            countBasketPrice() {
+                let result = null;
+                for (const elem of this.products) {
+                    result += elem.price;
+                }
+                return result;
+            }
+        }
+
+        function renderCart() {
+            const cartBody = document.querySelector(".shop");
+            const productInnerCart = [];
+            for (let i = 0; i < 2; i++) {
+                productInnerCart.push(cart.products[i])
+            }
+            if (productInnerCart == 0) {
+                cartBody.insertAdjacentHTML("beforeend", `Корзина пуста`)
+            } else {
+                let m = null
+                productInnerCart.forEach(element => {
+                    m += element.price * element.count
+                });
+                cartBody.insertAdjacentHTML("beforeend", `
+                В корзине: ${productInnerCart.length} товаров на сумму ${m} рублей
+                `)
+            }
+        }
+        renderCart()
+
+        function renderCatalog() {
+            const catalogBody = document.querySelector("#catalog");
+
+            for (const product of cart.products) {
+                catalogBody.insertAdjacentHTML("afterbegin", `  
+                <div class="catalog__product">
+                    <h2 class="product-heading">${product.name}</h2>
+                    <span class=product-price>${product.price}</span>
+                    <button class="button">Добавить в корзину</button>
+                </div>
+            `)
+            }
+        }
+        renderCatalog()
+    </script>
+</body>
+
+</html>

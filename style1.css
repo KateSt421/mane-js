@@ -1,0 +1,17 @@
+.catalog__product {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.button,
+.clr-cart,
+.adress,
+.coment {
+    width: 300px;
+    height: 30px;
+}
+
+.block {
+    margin-top: 50px;
+}
